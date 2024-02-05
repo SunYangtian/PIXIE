@@ -9,10 +9,11 @@ import os
 cfg = CN()
 
 abs_pixie_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-cfg.pixie_dir = abs_pixie_dir
+# cfg.pixie_dir = abs_pixie_dir
+cfg.pixie_dir = "/mnt/sda/syt/code/AnimatedSMPL/data/HPS/"
 cfg.device = 'cuda'
 cfg.device_id = '0'
-cfg.pretrained_modelpath = os.path.join(cfg.pixie_dir, 'data', 'pixie_model.tar')
+cfg.pretrained_modelpath = os.path.join(cfg.pixie_dir, 'pixie_data', 'pixie_model.tar')
 # cfg.pretrained_modelpath = '/ps/scratch/yfeng/Data/Projects-data/BodyHead/cluster_training/1113_final_newcoco_all_2_together/all[1.0]_betas[0.0]_pose[5.0]_pose[0.1]_3d[0.5]_body[5.0]_head[1.0]_hand[1.0]_shape[0.001]_pose[0.1]_prior[True]_reg[12.0]/model.tar'
 # cfg.pretrained_modelpath = '/ps/scratch/yfeng/Data/Projects-data/BodyHead/cluster_training/1204_newtex_head_only/size[8]_min[1.8]_max[2.2]_scale[0.3]_step[2]_eyed[1.0]_lipd[0.5]_exp[0.0001]_shape[0.0001]_tex[5e-05]_prior[True]_useWlmk[False]_/model.tar'
 ## smplx parameter settings
@@ -27,19 +28,19 @@ cfg.params.hand_share_list = ['right_wrist_pose', 'right_hand_pose'] #only for r
 # Options for Body model
 # ---------------------------------------------------------------------------- #
 cfg.model = CN()
-cfg.model.topology_path = os.path.join(cfg.pixie_dir, 'data', 'SMPL_X_template_FLAME_uv.obj') 
-cfg.model.topology_smplxtex_path = os.path.join(cfg.pixie_dir, 'data', 'smplx_tex.obj')
-cfg.model.topology_smplx_hand_path = os.path.join(cfg.pixie_dir, 'data', 'smplx_hand.obj')
-cfg.model.smplx_model_path = os.path.join(cfg.pixie_dir, 'data', 'SMPLX_NEUTRAL_2020.npz')
-cfg.model.face_mask_path = os.path.join(cfg.pixie_dir, 'data', 'uv_face_mask.png')
-cfg.model.face_eye_mask_path = os.path.join(cfg.pixie_dir, 'data', 'uv_face_eye_mask.png')
-cfg.model.tex_path = os.path.join(cfg.pixie_dir, 'data', 'FLAME_albedo_from_BFM.npz')
-cfg.model.extra_joint_path = os.path.join(cfg.pixie_dir, 'data', 'smplx_extra_joints.yaml')
-cfg.model.j14_regressor_path = os.path.join(cfg.pixie_dir, 'data', 'SMPLX_to_J14.pkl')
-cfg.model.flame2smplx_cached_path = os.path.join(cfg.pixie_dir, 'data', 'flame2smplx_tex_1024.npy')
-cfg.model.smplx_tex_path = os.path.join(cfg.pixie_dir, 'data', 'smplx_tex.png')
-cfg.model.mano_ids_path = os.path.join(cfg.pixie_dir, 'data', 'MANO_SMPLX_vertex_ids.pkl')
-cfg.model.flame_ids_path = os.path.join(cfg.pixie_dir, 'data', 'SMPL-X__FLAME_vertex_ids.npy')
+cfg.model.topology_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'SMPL_X_template_FLAME_uv.obj') 
+cfg.model.topology_smplxtex_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'smplx_tex.obj')
+cfg.model.topology_smplx_hand_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'smplx_hand.obj')
+cfg.model.smplx_model_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'SMPLX_NEUTRAL_2020.npz')
+cfg.model.face_mask_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'uv_face_mask.png')
+cfg.model.face_eye_mask_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'uv_face_eye_mask.png')
+cfg.model.tex_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'FLAME_albedo_from_BFM.npz')
+cfg.model.extra_joint_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'smplx_extra_joints.yaml')
+cfg.model.j14_regressor_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'SMPLX_to_J14.pkl')
+cfg.model.flame2smplx_cached_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'flame2smplx_tex_1024.npy')
+cfg.model.smplx_tex_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'smplx_tex.png')
+cfg.model.mano_ids_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'MANO_SMPLX_vertex_ids.pkl')
+cfg.model.flame_ids_path = os.path.join(cfg.pixie_dir, 'pixie_data', 'SMPL-X__FLAME_vertex_ids.npy')
 cfg.model.uv_size = 256
 cfg.model.n_shape = 200
 cfg.model.n_tex = 50
