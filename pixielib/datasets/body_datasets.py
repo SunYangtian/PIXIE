@@ -106,12 +106,12 @@ class TestData(Dataset):
         # crop image
         DST_PTS = np.array([[0,0], [0,self.crop_size - 1], [self.crop_size - 1, 0]])
         tform = estimate_transform('similarity', src_pts, DST_PTS)
-        dst_image = warp(image, tform.inverse, output_shape=(self.crop_size, self.crop_size))
+        dst_image = warp(image, tform.inverse, output_shape=(self.crop_size, self.crop_size), mode='edge')
         dst_image = dst_image.transpose(2,0,1)
         # hd image
         DST_PTS = np.array([[0,0], [0,self.hd_size - 1], [self.hd_size - 1, 0]])
         tform_hd = estimate_transform('similarity', src_pts, DST_PTS)
-        hd_image = warp(image, tform_hd.inverse, output_shape=(self.hd_size, self.hd_size))
+        hd_image = warp(image, tform_hd.inverse, output_shape=(self.hd_size, self.hd_size), mode='edge')
         hd_image = hd_image.transpose(2,0,1)
         # crop image
         return {'image': torch.tensor(dst_image).float(),
